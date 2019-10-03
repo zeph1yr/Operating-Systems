@@ -13,28 +13,35 @@ int main()
     vector<int>vi;
     vector<int>tat;
     vector<int>wait;
-    vector<pair<int,int>> vec;
+    vector<pair<int,int>> vec; // Here Vector pair is just like 2-D array
 
     float sum=0;
-    int At,Bt,c=0;
+    int At,Bt,c=0; // At - Arrival Time , Bt - Burst Time
 
     for(int i=0;i<tc;i++)
     {
         cin>>At>>Bt;
-        vec.push_back(make_pair(Bt,At));
+        vec.push_back(make_pair(At,Bt)); // Notice Arrival Time is the first instance of the pair
+        
+        
+        //This is because of the property of sort() STL function 
+                                        //In case of vector pairs, sort function will sort according to first element of the pair                                     
     }
+    sort(vec.begin(),vec.end());   // So final vector will be sorted according to Arrival time in ascending order with their burst time as second elemnt of the pair
 
-    sort(vec.begin(),vec.end());
-
-    for(auto it:vec)
-    {
-        At=it.first;
+    
+    for(auto it:vec) // Range-based for loop in C++ is added since C++ 11, where we dont have to make iterator and stuff to iterate over vectors
+    {                   // This is just like for(int i=0;i<n;i++)vec[i]
+        At=it.first;       // .first lets us access the first element of the pair, Arrival Time here
         Bt=it.second;
-        vi.push_back(Bt+c);
+        
+        
+        
+        vi.push_back(Bt+c); // Vi is completion time, = Burst Time + c ( Constant that stores how long the process has took before this task)
         int temp=Bt+c-At;
-        tat.push_back(temp);
-        wait.push_back(temp-Bt);
-        sum+=temp-Bt;
+        tat.push_back(temp); // Turn around Time, temp = Burst time + c - Arrival time
+        wait.push_back(temp-Bt); // Waiting Time
+        sum+=temp-Bt; // Total sum to calculate average completion time
         c=c+Bt;
     }
 
