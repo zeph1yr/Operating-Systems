@@ -1,13 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//Thanks @Shrey29ansh for the feedback to add comments explaining this code
+
 int main()
 {
-    //ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
     int tc;
     cout<<"Enter the number of elements:";
     cin>>tc;
 
+    // Vectors in C++ are dynamic arrays i.e. They have the ability to resize themselves automatically when an element is inserted or deleted, with their storage being handled automatically by the container.
     vector<int>vi;
     vector<int>tat;
     vector<int>wait;
@@ -42,3 +44,5 @@ int main()
     cout<<endl<<sum/tc<<endl;
 
 }
+
+//Edit - Removed unnnecessary parts, added comments
