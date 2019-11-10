@@ -12,6 +12,8 @@ int main()
     vector<int>tat;
     vector<int>wait;
     vector<pair<int,int>> vec;
+    
+    // Vectors in C++ are dynamic arrays i.e. They have the ability to resize themselves automatically when an element is inserted or deleted, with their storage being handled automatically by the container.
 
     float sum=0;
     int At,Bt,c=0;
